@@ -67,12 +67,13 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_send"
             style="@style/Button"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="40dp"
-            android:text="Отправить"/>
+            android:layout_marginRight="20dp"
+            android:onClick="SendMessage"
+            android:text="Отправить" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
