@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Boolean IsValid(String Value) {
-        Pattern sPattern = Pattern.compile("\\w{2,20}@\\w{2,10}\\.\\w{2,4}$");
+        Pattern sPattern = Pattern.compile("\\w{1,20}.*@\\w{1,10}\\.\\w{1,4}$");
         return sPattern.matcher(Value).matches();
     }
 
@@ -86,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
     CallbackResponse CallbackResponseCode = new CallbackResponse() {
         @Override
         public void returner(String Response) {
+            Code = Response;
+
             AlertDialog.Builder AlertDialogBuilder = new AlertDialog.Builder(Context);
             ConstraintLayout View = (ConstraintLayout)getLayoutInflater().inflate(R.layout.check_email, null);
             AlertDialogBuilder.setView(View);
             AlertDialogBuilder.setOnCancelListener(AlterDialogCancelListener);
             AlertDialog Dialog = AlertDialogBuilder.create();
             Dialog.show();
-
-            Code = Response;
         }
     };
 }

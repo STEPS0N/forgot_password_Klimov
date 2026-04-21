@@ -10,12 +10,12 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class SendCommon extends AsyncTask<Void, Void, Void> {
-    public String Url = "http://192.168.0.109:5000/api/CommonController/Send", Code;
-    public EditText TbEmail;
+    public String Url = "http://10.111.20.114:5000/api/user/send", Code;
+    public String tbEmail;
     CallbackResponse CallbackResponse, CallbackError;
 
     public SendCommon(EditText tbEmail, CallbackResponse callbackResponse, CallbackResponse callbackError) {
-        this.TbEmail = tbEmail;
+        this.tbEmail = tbEmail.getText().toString();
         this.CallbackResponse = callbackResponse;
         this.CallbackError = callbackError;
     }
@@ -23,7 +23,7 @@ public class SendCommon extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... Voids) {
         try {
-             Document Response = Jsoup.connect(Url + "?Email=" + TbEmail.getText())
+             Document Response = Jsoup.connect(Url + "?Email=" + tbEmail)
                     .ignoreContentType(true)
                     .get();
             Code = Response.text();
